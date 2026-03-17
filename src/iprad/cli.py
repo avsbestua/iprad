@@ -3,7 +3,7 @@ from iprad.core.ipinfo_client import IPinfoClient
 
 @click.command()
 @click.argument('ip')
-def main():
+def main(ip: str):
     client = IPinfoClient()
 
-    client.check_ip("1.1.1.1")
+    client.check_ip(ip)
