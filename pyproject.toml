@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iprad"
+version = "0.0.1"
+description = "Powerfull IP checker"
+authors = [
+    {name = "Avsbestua", email = "widzmien333@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "click>=8.1.0",
+    "requests>=2.31.0",
+    "rich>=13.0.0",  # Для красивого виводу та таблиць
+]
+
+[project.scripts]
+iprad = "iprad.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
