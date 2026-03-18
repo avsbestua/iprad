@@ -15,7 +15,8 @@ requires-python = ">=3.10"
 dependencies = [
     "click>=8.1.0",
     "requests>=2.31.0",
-    "rich>=13.0.0",  # Для красивого виводу та таблиць
+    "rich>=13.0.0",
+    "python-whois">=
 ]
 
 [project.scripts]

@@ -1,30 +1,47 @@
 import os
 import json
 import requests
+import whois
+
 from pathlib import Path
-from iprad.utils.functions import get_flag
+from datetime import datetime
+from rich.console import Console
 
 CACHE = Path(__file__).parent.parent.parent / '.cache'
+console = Console()
 
-def fetch(url: str, console):
+
+def fetch(url: str, module_name: str, ip: str) -> str:
     try:
-        response = requests.get(url)
-        response.raise_for_status()
+        if module_name not in ['whois']:
+            response = requests.get(url)
+            response.raise_for_status()
 
-        data = response.json()
+            data = response.json()
+        else:
+            if module_name == 'whois':
+                 data = whois.whois(ip)
 
         return data
-        
+
+               
     except requests.exceptions.HTTPError as e:
+            console.clear()
             console.print(f"[bold red]HTTP ERROR![/] Failed to fetch data. Status: {response.status_code}")
     except requests.exceptions.ConnectionError:
+            console.clear()
             console.print("[bold red]CONNECTION ERROR![/] Check internet connection")
+
+    return None
     
+def json_serial(obj):
+    if isinstance(obj, datetime):
+        return obj.isoformat()
+    raise TypeError(f"Type {type(obj)} not serializable")
 
 
-
-def cache_processing(module_name: str, identifier: str, url: str, console):
-    
+def cache_processing(module_name: str, identifier: str, url=None):
+    #Cache function
     cache_file = CACHE / module_name / f"{identifier}.json"
     module_dir = CACHE / module_name
 
@@ -36,13 +53,16 @@ def cache_processing(module_name: str, identifier: str, url: str, console):
             return json.load(f), from_cache
 
         
-    data = fetch(url, console)
+    #identifier = ip
+    data = fetch(url, module_name, identifier)
+    if data is None:
+        return None, None     
 
     #Writing data to cache
     if data:
         module_dir.mkdir(parents=True, exist_ok=True)
         with open(cache_file, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
+            json.dump(data, f, indent=4, ensure_ascii=False, default=json_serial)
     else:
         console.print("[bold red]DATA PROCESSING ERROR![/]")
 

@@ -1,26 +1,29 @@
-import requests
-import json
-import time
-
 from rich.console import Console
 from rich.panel import Panel
 from iprad.utils.cache import cache_processing
-from iprad.utils.functions import get_flag
+from iprad.utils.functions import get_flag, get_resolved_ip
 
 #IPinfo module
 class IPinfoClient:
     BASE_URL = "https://ipinfo.io/"
 
     def check_ip(self, ip: str):
-        url = f"{self.BASE_URL}/{ip}/json"
+
+        #resolve ip 
+        ip_resolved = get_resolved_ip(ip)
+        
+        url = f"{self.BASE_URL}/{ip_resolved}/json"
         
         console = Console()
-        console.clear()
+        # console.clear()
         
         #Fetching data from ipinfo.io
         with console.status("[bold green]Fetching and processing Data...") as status:
             
-            data, from_cache = cache_processing("ipinfo", ip, url, console)
+            data, from_cache = cache_processing("ipinfo", ip, url)
+
+            if data is None:
+                return None
 
             info = (
                 f"[bold green]IP:[/] {data.get('ip')}\n"
@@ -40,4 +43,4 @@ class IPinfoClient:
 
 
 
-        console.print(Panel(info, title=f"[bold cyan]IPInfo Report for {data.get('ip')}", subtitle=f"[bold blue]From Cache: [/] {from_cache}"))
+        console.print(Panel(info, title=f"[bold cyan]IPInfo Report for {data.get('ip')} {ip})", subtitle=f"[bold blue]From Cache: [/] {from_cache}"))
