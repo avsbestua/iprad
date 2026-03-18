@@ -20,7 +20,7 @@ def fetch(url: str, module_name: str, ip: str) -> str:
             data = response.json()
         else:
             if module_name == 'whois':
-                 data = whois.whois(ip)
+                data = whois.whois(ip)
 
         return data
 

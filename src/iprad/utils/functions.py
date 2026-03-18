@@ -12,7 +12,6 @@ def get_resolved_ip(user_inp: str) -> str | None:
     try:
         socket.inet_aton(user_inp)
 
-        print(user_inp)
 
         return user_inp
     
