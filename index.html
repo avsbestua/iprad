@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iprad | Modular IP Lookup Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #020617;
+            color: #f1f5f9;
+        }
+        .code-block {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #10b981, #a3e635);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .feature-card:hover {
+            border-color: #10b981;
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+        }
+        .nav-link:hover {
+            color: #10b981;
+        }
+        ::selection {
+            background-color: #10b981;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="border-b border-emerald-900/30 sticky top-0 bg-slate-950/90 backdrop-blur-md z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold gradient-text tracking-tighter">iprad</span>
+                </div>
+                <div class="flex gap-6 text-sm font-medium">
+                    <a href="#features" class="nav-link transition">Features</a>
+                    <a href="#installation" class="nav-link transition">Install</a>
+                    <a href="https://github.com/avsbestua/iprad" target="_blank" class="text-slate-400 hover:text-emerald-400 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-24 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight text-white">
+                <span class="gradient-text">iprad</span>
+            </h1>
+            <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                A high-performance Python CLI utility designed for security professionals. 
+                Built with a modular core for seamless IP intelligence gathering.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://github.com/avsbestua/iprad" class="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20">
+                    <i class="fab fa-github text-lg"></i> Star on GitHub
+                </a>
+                <div class="code-block px-6 py-3 rounded-lg flex items-center justify-between gap-4 font-mono text-sm group">
+                    <span class="text-emerald-500">$</span> pip install .
+                    <button onclick="copyInstall()" class="text-slate-500 hover:text-emerald-400 ml-4 transition-colors">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Image Preview Section -->
+    <section class="max-w-5xl mx-auto px-4 mb-24">
+        <div class="rounded-xl overflow-hidden border border-emerald-900/30 shadow-2xl shadow-emerald-500/5">
+            <div class="bg-slate-900 px-4 py-3 flex justify-between items-center border-b border-emerald-900/30">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                    <span class="text-xs text-slate-500 ml-2 font-mono">user@terminal: ~/iprad</span>
+                </div>
+                <span class="text-[10px] uppercase tracking-widest text-slate-600 font-bold">Terminal Output</span>
+            </div>
+            <!-- Dynamic Image Container -->
+            <div class="bg-[#0b1120] p-1">
+                <img src="https://raw.githubusercontent.com/avsbestua/iprad/main/assets/example.png" alt="iprad CLI output" class="w-full opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/800x400/020617/10b981?text=iprad+check+1.1.1.1'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-slate-900/30 border-y border-emerald-900/20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Core Architecture</h2>
+                <p class="text-slate-400">Engineered for speed and modular expansion.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card p-8 rounded-2xl bg-slate-950 border border-slate-800 transition-all">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-microchip text-emerald-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Modular Logic</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Functional logic is isolated in <code>src/iprad/core</code>, allowing developers to plug in new lookup providers easily.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card p-8 rounded-2xl bg-slate-950 border border-slate-800 transition-all">
+                    <div class="w-12 h-12 bg-lime-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-lime-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white text-sm">Smart Caching</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Integrated <code>.cache</code> management ensures zero redundant API requests, speeding up repetitive scans significantly.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card p-8 rounded-2xl bg-slate-950 border border-slate-800 transition-all">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-halved text-green-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white text-sm">Rich Interface</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Leverages modern Python libraries to provide beautiful, readable tables and formatted terminal output.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation & Usage -->
+    <section id="installation" class="py-24 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 text-white">
+                    <i class="fas fa-terminal text-emerald-500"></i> Installation
+                </h2>
+                <div class="code-block p-8 rounded-xl font-mono text-sm space-y-3 overflow-x-auto shadow-inner">
+                    <p class="text-slate-600"># Clone the source code</p>
+                    <p><span class="text-emerald-500">git clone</span> https://github.com/avsbestua/iprad.git</p>
+                    <p><span class="text-emerald-500">cd</span> iprad</p>
+                    <p class="text-slate-600 mt-6"># Install the utility globally</p>
+                    <p><span class="text-emerald-500">pip install</span> .</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 text-white">
+                    <i class="fas fa-code text-emerald-500"></i> CLI Reference
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition">
+                        <h4 class="font-bold mb-4 text-emerald-400 flex items-center gap-2 uppercase text-xs tracking-widest">
+                            <i class="fas fa-search"></i> Main Command
+                        </h4>
+                        <div class="font-mono text-sm text-slate-300">
+                            iprad check <span class="text-emerald-500">&lt;ip_address&gt;</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition">
+                        <h4 class="font-bold mb-4 text-emerald-400 flex items-center gap-2 uppercase text-xs tracking-widest">
+                            <i class="fas fa-trash-can"></i> Maintenance
+                        </h4>
+                        <div class="font-mono text-sm text-slate-300">
+                            iprad rmcache
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-emerald-900/20 py-16 px-4 text-center">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://github.com/avsbestua/iprad" class="text-slate-500 hover:text-emerald-400 transition-all transform hover:scale-110">
+                    <i class="fab fa-github text-3xl"></i>
+                </a>
+            </div>
+            <p class="text-slate-500 text-sm mb-2">Licensed under <span class="text-slate-300">MIT</span></p>
+            <p class="text-slate-600 text-xs">Developed by <a href="https://github.com/avsbestua" class="hover:text-emerald-500">avsbestua</a>. &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyInstall() {
+            const text = "pip install .";
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            const btn = event.currentTarget;
+            const originalIcon = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check text-emerald-400"></i>';
+            setTimeout(() => btn.innerHTML = originalIcon, 2000);
+        }
+    </script>
+</body>
+</html>
