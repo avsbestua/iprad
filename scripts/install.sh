@@ -33,12 +33,9 @@ unzip iprad.zip
 
 cd iprad-main
 
-
-pip install -e .
-
+pip3 install -e .
 
 cd ..
-
 
 clear
 rm iprad.zip
