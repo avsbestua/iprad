@@ -27,7 +27,7 @@ if exist "%hash_file%" (
 )
 
 
-echo !new_hash! > "%hash_file%"
+(echo|set /p="!new_hash!") > "%hash_file%"
 
 echo New version detected! Starting extraction...
 
