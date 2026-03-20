@@ -24,6 +24,17 @@ pip install .
 ```
 Now it is installed in your system
 
+### Alternative method
+You can run this comands for installing
+```bash
+#macOS or Linux
+curl -L https://raw.githubusercontent.com/avsbestua/iprad/refs/heads/main/scripts/install.sh | bash
+```
+
+```bash
+curl -L https://raw.githubusercontent.com/avsbestua/iprad/refs/heads/main/scripts/install.bat -o install.bat && install.bat
+```
+
 ### For Developers (Editable Mode)
 If you plan to modify the code and want changes to take effect immediately:
 ```bash
