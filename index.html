@@ -150,8 +150,7 @@
                     <i class="fab fa-windows text-emerald-500"></i>Installation/Updating on Windows
                 </h2>
                 <div class="code-block p-8 rounded-xl font-mono text-sm space-y-3 overflow-x-auto shadow-inner">
-                    <p><span class="text-emerald-500">Invoke-WebRequest</span> -Uri "https://raw.githubusercontent.com/avsbestua/iprad/refs/heads/main/scripts/install.bat" -OutFile "install.bat"; .\install.bat; rm .\install.bat</p>
-            </div>
+                    <p><span class="text-emerald-500">curl -L</span> https://raw.githubusercontent.com/avsbestua/iprad/refs/heads/main/scripts/install.bat -o install.bat && install.bat</p>
         </div>
         </div>
     </section>
