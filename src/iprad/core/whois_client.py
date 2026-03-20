@@ -44,7 +44,7 @@ class WhoIsClient:
                 f"[bold red]Abuse Emails:[/] {emails_str}\n"
                 f"[bold red]Whois Server:[/] {data.get('whois_server')}\n\n"
 
-                f"[bold green]Creation date:[/] {data.get("creation_date")}\n"
+                f"[bold green]Creation date:[/] {data.get('creation_date')}\n"
                 f"[bold green]Expiration date:[/] {data.get('expiration_date')}\n"
             )
 

@@ -28,10 +28,10 @@ fi
 echo "$NEW_HASH" > "$HASH_FILE"
 
 
-unzip iprad.zip 
+unzip iprad.zip || exit
 
 
-cd iprad-main
+cd iprad-main || exit
 
 pip3 install -e .
 
