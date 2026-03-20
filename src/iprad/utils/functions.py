@@ -1,7 +1,7 @@
 import socket
 
 def get_flag(country_code: str) -> str:
-    #Get аlag from country code
+    #Get flag from country code
     if not country_code or len(country_code) != 2:
         return ""
     

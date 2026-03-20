@@ -43,4 +43,4 @@ class IPinfoClient:
 
 
 
-        console.print(Panel(info, title=f"[bold cyan]IPInfo Report for {data.get('ip')} {ip})", subtitle=f"[bold blue]From Cache: [/] {from_cache}"))
+        console.print(Panel(info, title=f"[bold cyan]IPInfo Report for {ip} ({data.get('ip')})", subtitle=f"[bold blue]From Cache: [/] {from_cache}"))

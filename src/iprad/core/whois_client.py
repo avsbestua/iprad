@@ -17,7 +17,7 @@ class WhoIsClient:
         console = Console()
         # console.clear()
         
-        #Fetching data from ipinfo.io
+        #Fetching data from whois
         with console.status("[bold green]Fetching and processing Data...") as status:
             
             data, from_cache = cache_processing("whois", ip_resolved)
@@ -45,7 +45,7 @@ class WhoIsClient:
                 f"[bold red]Whois Server:[/] {data.get('whois_server')}\n\n"
 
                 f"[bold green]Creation date:[/] {data.get('creation_date')}\n"
-                f"[bold green]Expiration date:[/] {data.get('expiration_date')}\n"
+                f"[bold green]Expiration date:[/] {data.get('expiration_date')}"
             )
 
 

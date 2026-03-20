@@ -37,5 +37,6 @@ cd iprad-main
 
 pip install -e .
 
+cd ..
 del iprad.zip
 pause

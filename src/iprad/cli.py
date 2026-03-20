@@ -2,6 +2,7 @@ import click
 import shutil
 from iprad.core.ipinfo_client import IPinfoClient
 from iprad.core.whois_client import WhoIsClient
+from iprad.core.ping_tracert_client import PingTracertClient
 
 @click.group(invoke_without_command=True)
 @click.pass_context
@@ -13,18 +14,26 @@ def main(ctx) -> None:
 
 @main.command()
 @click.argument('ip', required=True)
-def check(ip: str) -> None:
+@click.option('--pingtr', '-pt', is_flag=True, help="Use ping and traceroute module")
+def check(ip: str, pingtr: bool) -> None:
+    """Check ip"""
     client_ipinfo = IPinfoClient()
     client_ipinfo.check_ip(ip)
 
     client_whois = WhoIsClient()
     client_whois.check_ip(ip)
 
+    #user can use ping and tracert
+    if pingtr:
+        client_ping = PingTracertClient()
+        client_ping.check_ip(ip)
+
     
 
 
 @main.command()
 def rmcache() -> None:
+    """Delete cache files"""
     from iprad.utils.cache import CACHE
     from rich.console import Console
 
