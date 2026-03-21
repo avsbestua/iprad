@@ -53,7 +53,7 @@ class PingTracertClient:
 
 
 
-        console.print(Panel(info, title=f"[bold cyan]Ping Report for {ip} {ip_resolved})"))
+        console.print(Panel(info, title=f"[bold cyan]Ping Report for {ip} ({ip_resolved})"))
 
         with console.status("[bold green]Traceroute in progress (it can take 20-60 seconds)") as status:
             try:
@@ -80,4 +80,4 @@ class PingTracertClient:
                 table.add_row(str(hop.distance), h_ip, f"{hop.avg_rtt} ms")
 
         
-        console.print(Panel(table, title=f"[bold cyan]Fast traceroute report for {ip} {ip_resolved}",))
+        console.print(Panel(table, title=f"[bold cyan]Fast traceroute report for {ip} ({ip_resolved})",))

@@ -14,8 +14,8 @@ def main(ctx) -> None:
 
 @main.command()
 @click.argument('ip', required=True)
-@click.option('--pingtr', '-pt', is_flag=True, help="Use ping and traceroute module")
-def check(ip: str, pingtr: bool) -> None:
+@click.option('-pt', is_flag=True, help="Use ping and traceroute module, require sudo mode")
+def check(ip: str, pt: bool) -> None:
     """Check ip"""
     client_ipinfo = IPinfoClient()
     client_ipinfo.check_ip(ip)
@@ -24,7 +24,7 @@ def check(ip: str, pingtr: bool) -> None:
     client_whois.check_ip(ip)
 
     #user can use ping and tracert
-    if pingtr:
+    if pt:
         client_ping = PingTracertClient()
         client_ping.check_ip(ip)
 

@@ -50,6 +50,15 @@ iprad check 1.1.1.1
 ```
 And you`ll get this
 ![example_output](assets/example.png)
+**iprad** has some modules, that require **sudo** mode, for opening raw socket, for example:
+
+```bash
+sudo iprad check 1.1.1.1 -pt
+```
+
+`-pt` Enables ping and traceroute module. Here is output:
+
+![output_pt](assets/output_pt.jpeg)
 
 ### Cache cleaning 🧹
 **iprad** has cache function. If you want to clean cache run this:
