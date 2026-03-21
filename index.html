@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="iprad — high-performance Python CLI utility. Built with a modular core for seamless IP intelligence gathering.">
+    <meta name="keywords" content="iprad, network tools, ip reconnaissance, python tool, cybersecurity">
+    <meta name="robots" content="index, follow">
     <title>iprad | Modular IP Lookup Tool</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -62,7 +65,7 @@
                 <span class="gradient-text">iprad</span>
             </h1>
             <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                A high-performance Python CLI utility designed for security professionals. 
+                A high-performance Python CLI utility. 
                 Built with a modular core for seamless IP intelligence gathering.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -70,8 +73,12 @@
                     <i class="fab fa-github text-lg"></i> Star on GitHub
                 </a>
                 
-                <a href="#installation" class="bg-black-800 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20">
+                <a href="#installation" class="bg-teal-800 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20">
                     <i class="fas fa-download text-lg"></i> Download
+                </a>
+
+                <a href="https://github.com/avsbestua/iprad/blob/main/README.md" class="bg-black-800 hover:bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/20" target="_blank">
+                    <i class="fas fa-file"></i> Readme.md
                 </a>
             </div>
         </div>
@@ -155,15 +162,18 @@
         </div>
     </section>
 
-    <section id="usage" class="px-100">
-        <div class="max-w-5xl mx-auto">
-            <div class="mb-20">
-                <h2 class="text-3xl font-bold flex items-center gap-3 text-white">
-                    <i class="fas fa-code text-emerald-500"></i> Usage
-                </h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition">
+<section id="usage" class="px-2">
+    <div class="max-w-5xl mx-auto">
+        <div class="mb-10">
+            <h2 class="text-3xl font-bold flex items-center gap-3 text-white">
+                <i class="fas fa-code text-emerald-500"></i> Usage
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6"> 
+            
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition flex flex-col justify-between">
+                <div>
                     <h4 class="font-bold mb-4 text-emerald-400 flex items-center gap-2 uppercase text-xs tracking-widest">
                         <i class="fas fa-search"></i> Main Command
                     </h4>
@@ -171,19 +181,45 @@
                         iprad check <span class="text-emerald-500">&lt;ip_address&gt;</span>
                     </div>
                 </div>
-                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition mt-7">
+            </div>
+
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition flex flex-col justify-between">
+                <div>
                     <h4 class="font-bold mb-4 text-emerald-400 flex items-center gap-2 uppercase text-xs tracking-widest">
-                        <i class="fas fa-trash-can"></i> Cache removing
+                        <i class="fas fa-trash-can"></i> Cache management
                     </h4>
                     <div class="font-mono text-sm text-slate-300">
                         iprad rmcache
                     </div>
                 </div>
             </div>
+
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition flex flex-col justify-between">
+                <div>
+                    <h4 class="font-bold mb-4 text-emerald-400 flex items-center gap-2 uppercase text-xs tracking-widest">
+                        <i class="fas fa-network-wired"></i> Network modules
+                    </h4>
+                    <div class="font-mono text-sm text-slate-300 space-y-2">
+                        <span class="text-slate-500 italic"># Require sudo on UNIX or Admin rights on Windows</span> <br>
+                        sudo iprad check <span class="text-emerald-500">&lt;ip&gt;</span> -pt
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-emerald-900/50 transition flex flex-col justify-between">
+                <div>
+                    <h4 class="font-bold mb-4 text-emerald-400 flex items-center gap-2 uppercase text-xs tracking-widest">
+                        <i class="fas fa-circle-info"></i> Help & Info
+                    </h4>
+                    <div class="font-mono text-sm text-slate-300">
+                        iprad --help
+                    </div>
+                </div>
+            </div>               
+            
         </div>
-
-    </section>
-
+    </div>
+</section>
     <!-- Footer -->
     <footer class="border-t border-emerald-900/20 py-9 px-4 text-center">
         <div class="max-w-6xl mx-auto">
