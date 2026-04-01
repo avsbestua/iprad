@@ -2,18 +2,23 @@ import os
 import json
 import requests
 import whois
+from dotenv import load_dotenv, find_dotenv
+from os import getenv
 
 from pathlib import Path
 from datetime import datetime
 from rich.console import Console
 
+
 CACHE = Path(__file__).parent.parent.parent / '.cache'
 console = Console()
 
+load_dotenv(find_dotenv())
+ABUSEIPDB_API_KEY = getenv("ABUSEIPDB_API_KEY")
 
 def fetch(url: str, module_name: str, ip: str) -> str:
     try:
-        if module_name not in ['whois']:
+        if module_name not in ['whois', 'abuseipdb']:
             response = requests.get(url)
             response.raise_for_status()
 
@@ -21,6 +26,24 @@ def fetch(url: str, module_name: str, ip: str) -> str:
         else:
             if module_name == 'whois':
                 data = whois.whois(ip)
+
+            if module_name == 'abuseipdb':
+                params = {
+                    'ipAddress': ip,
+                    'maxAgeInDays': 90,
+                }
+                
+                headers = {
+                    'Key': ABUSEIPDB_API_KEY,
+                    'Accept': 'application/json' 
+                }
+                
+                response = requests.get(url, params=params, headers=headers)
+                response.raise_for_status()
+                
+                data = response.json()
+
+
 
         return data
 

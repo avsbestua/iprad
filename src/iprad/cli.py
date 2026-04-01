@@ -3,6 +3,7 @@ import shutil
 from iprad.core.ipinfo_client import IPinfoClient
 from iprad.core.whois_client import WhoIsClient
 from iprad.core.ping_tracert_client import PingTracertClient
+from iprad.core.abuseipdb_client import AbuseIPDBClient
 
 @click.group(invoke_without_command=True)
 @click.pass_context
@@ -15,18 +16,24 @@ def main(ctx) -> None:
 @main.command()
 @click.argument('ip', required=True)
 @click.option('-pt', is_flag=True, help="Use ping and traceroute module, require sudo mode")
-def check(ip: str, pt: bool) -> None:
-    """Check ip"""
+@click.option('--nokeys', is_flag=True, help="Run without API key")
+def check(ip: str, pt: bool, nokeys: bool) -> None:
     client_ipinfo = IPinfoClient()
     client_ipinfo.check_ip(ip)
 
     client_whois = WhoIsClient()
     client_whois.check_ip(ip)
 
+    if not nokeys:
+        client_abuseipdb = AbuseIPDBClient()
+        client_abuseipdb.check_ip(ip)
+
     #user can use ping and tracert
     if pt:
         client_ping = PingTracertClient()
         client_ping.check_ip(ip)
+
+    
 
     
 

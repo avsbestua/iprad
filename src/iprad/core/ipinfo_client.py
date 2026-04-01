@@ -15,7 +15,6 @@ class IPinfoClient:
         url = f"{self.BASE_URL}/{ip_resolved}/json"
         
         console = Console()
-        # console.clear()
         
         #Fetching data from ipinfo.io
         with console.status("[bold green]Fetching and processing Data...") as status:
@@ -38,7 +37,7 @@ class IPinfoClient:
                 f"[bold yellow]Location:[/] {data.get('loc')}\n"
                 f"[bold yellow]Postal code:[/] {data.get('postal')}\n\n"
 
-                f"[bold purple]Anycast:[/] {data.get('anycast')}\n"
+                f"[bold purple]Anycast:[/] {data.get('anycast')}"
             )
 
 

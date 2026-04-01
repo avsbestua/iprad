@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iprad"
-version = "0.0.3"
+version = "0.0.4"
 description = "Powerful IP checker"
 authors = [
     {name = "Avsbestua", email = "widzmien333@gmail.com"}
@@ -17,7 +17,8 @@ dependencies = [
     "requests>=2.31.0",
     "rich>=13.0.0",
     "python-whois>=0.8.0",
-    "icmplib>=3.0.4"
+    "icmplib>=3.0.4",
+    "python-dotenv>=0.9.9"
 ]
 
 [project.scripts]
