@@ -49,11 +49,11 @@ def fetch(url: str, module_name: str, ip: str) -> str:
 
                
     except requests.exceptions.HTTPError as e:
-            console.clear()
             console.print(f"[bold red]HTTP ERROR![/] Failed to fetch data. Status: {response.status_code}")
     except requests.exceptions.ConnectionError:
-            console.clear()
             console.print("[bold red]CONNECTION ERROR![/] Check internet connection")
+    except Exception as e:
+            console.print(f"[bold red]ERROR![/] {str(e)}")
 
     return None
     
