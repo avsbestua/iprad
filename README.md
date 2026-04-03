@@ -6,9 +6,12 @@
   <img src="https://img.shields.io/github/last-commit/avsbestua/iprad?style=flat-square" alt="Last Commit">
 </p>
 
-**iprad** - modular Python-based CLI utility designed for IP Lookup. Built with scalability in mind, it separates core logic into distinct modules for easier maintenance and expansion.
+**iprad** - modular Python-based CLI utility designed for IP Lookup. Built with scalability in mind, it separates core logic into distinct modules for easier maintenance and expansion. 
 
-# Architecture 💻
+# ❗️IP Type 
+**iprad** supports only Ipv4 addresses. Also you can write domain, like `google.com` when using **iprad**. 
+
+# 💻 Architecture
 * **Modular Design**: Core functionality is encapsulated within the `src/iprad/core` package.
 * **Package Management**: Uses `pyproject.toml` for modern dependency management and entry point configuration.
 * **Data Persistence**: Includes a local `.cache` directory for caching results.
