@@ -54,8 +54,8 @@ cp .env.example .env
 ```
 Then, open it in your text editor and replace `YOUR_KEY` with your API KEY for module.
 
-```json
-ABUSEIPDB_API_KEY="YOUR KEY" //replace this
+```text
+ABUSEIPDB_API_KEY="YOUR KEY" <-- replace this
 ```
 
 # Examples 💾
@@ -70,6 +70,12 @@ And you`ll get this
 
 ```bash
 sudo iprad check 1.1.1.1 -pt
+```
+
+Also, you can check own IP with this command:
+
+```bash
+iprad check myip
 ```
 
 `-pt` Enables ping and traceroute module. Here is output:

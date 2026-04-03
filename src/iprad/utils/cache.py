@@ -30,7 +30,7 @@ def fetch(url: str, module_name: str, ip: str) -> str:
             if module_name == 'abuseipdb':
                 params = {
                     'ipAddress': ip,
-                    'maxAgeInDays': 90,
+                    'maxAgeInDays': 180,
                 }
                 
                 headers = {

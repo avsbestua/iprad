@@ -18,6 +18,15 @@ def main(ctx) -> None:
 @click.option('-pt', is_flag=True, help="Use ping and traceroute module, require sudo mode")
 @click.option('--nokeys', is_flag=True, help="Run without API key")
 def check(ip: str, pt: bool, nokeys: bool) -> None:
+    if ip == "myip":
+        import requests
+        response = requests.get("https://api.ipify.org?format=json")
+        if response.status_code == 200:
+            ip = response.json().get("ip")
+        else:
+            click.echo("Failed to retrieve your IP address.")
+            return
+        
     client_ipinfo = IPinfoClient()
     client_ipinfo.check_ip(ip)
 
