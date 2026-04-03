@@ -52,4 +52,4 @@ class AbuseIPDBClient:
                     f"[bold purple]Is public:[/] {data.get('isPublic')}")
 
 
-        console.print(Panel(info, title=f"[bold cyan]AbuseIPDB Report for {ip} ({data.get('ipAddress')})", subtitle=f"[bold blue]From Cache: [/] {from_cache}"))
+        console.print(Panel(info, title=f"[bold magenta]AbuseIPDB Report for {ip} ({data.get('ipAddress')}) (API key needed)", subtitle=f"[bold blue]From Cache: [/] {from_cache}"))
