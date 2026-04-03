@@ -42,6 +42,19 @@ git clone https://github.com/avsbestua/iprad.git
 cd iprad
 pip install -e .
 ```
+
+### API Keys 🔑
+Some modules use API Keys. For example AbuseIPDB need it. Go to **iprad** directory *(can be user folder)*. And run this:
+
+```bash
+cp .env.example .env
+```
+Then, open it in your text editor and replace `YOUR_KEY` with your API KEY for module.
+
+```json
+ABUSEIPDB_API_KEY="YOUR KEY" //replace this
+```
+
 # Examples 💾
 
 Let`s try
@@ -59,6 +72,12 @@ sudo iprad check 1.1.1.1 -pt
 `-pt` Enables ping and traceroute module. Here is output:
 
 ![output_pt](assets/output_pt.jpeg)
+
+If you don't want to use API Keys you can run with `--nokeys`
+
+```bash
+iprad check 1.1.1.1 --nokeys
+```
 
 ### Cache cleaning 🧹
 **iprad** has cache function. If you want to clean cache run this:
