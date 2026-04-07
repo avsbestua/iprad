@@ -42,9 +42,11 @@ def check(ip: str, pt: bool, nokeys: bool) -> None:
         client_ping = PingTracertClient()
         client_ping.check_ip(ip)
 
-    
-
-    
+@main.command()
+def self():
+    from iprad.core.device_info_client import SelfInfoClient
+    client_self = SelfInfoClient()
+    client_self.check_ip()
 
 
 @main.command()
